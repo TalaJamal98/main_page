@@ -14,6 +14,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/constraint"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,8 +24,8 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/bar"></ImageView>
 
         <ImageView
@@ -46,44 +47,10 @@
         app:layout_constraintTop_toBottomOf="@id/bar"
         android:background="@color/colorPrimaryDark"
         ></View>
- <LinearLayout
-     android:id="@+id/searchLinear"
-     app:layout_constraintTop_toBottomOf="@id/bar"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/search"
-        android:layout_width="360dp"
-      android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/sp"
 
-        app:cardCornerRadius="35dp"
-
-
-        tools:ignore="MissingClass,MissingConstraints">
-        <EditText
-android:layout_marginLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/border"
-            android:text="Search"></EditText>
-
-    </androidx.cardview.widget.CardView>
-
-<ImageView
-    android:layout_width="45dp"
-    android:layout_height="45dp"
-    android:src="@drawable/psearch"
-    app:layout_constraintLeft_toRightOf="@id/search"
-   android:layout_marginTop="15dp"
-    android:layout_marginLeft="3dp"
-    tools:ignore="MissingConstraints"></ImageView>
- </LinearLayout>
 
     <RelativeLayout
-        app:layout_constraintTop_toBottomOf="@id/searchLinear"
+        app:layout_constraintTop_toBottomOf="@id/bar"
         android:layout_marginTop="20dp"
         android:id="@+id/postsArea"
         android:layout_width="match_parent"
@@ -279,6 +246,24 @@ android:layout_marginLeft="10dp"
     </RelativeLayout>
 
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom"
+        app:layout_constraintBottom_toBottomOf="@id/constraint"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_navigation"
+
+            app:labelVisibilityMode="unlabeled"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/bottom_menu"/>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -295,5 +280,6 @@ android:layout_marginLeft="10dp"
 
 
     </com.google.android.material.navigation.NavigationView>
+
 
     </androidx.drawerlayout.widget.DrawerLayout>
